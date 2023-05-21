@@ -1,8 +1,9 @@
 const {
-    getAllDataDB, 
+    getAllDataDB,
     getAllDataByIDDB,
-    createDataDB, 
-    updateDataDB
+    createDataDB,
+    updateDataDB,
+    deleteDataByIDDB
 } = require("../repository/enviroment.repository.js");
 
 const getAllData = async () => {
@@ -13,21 +14,28 @@ const getAllData = async () => {
 const getAllDataByID = async (id) => {
     const data = await getAllDataByIDDB(id);
     return data;
-}; 
+};
 
-// const createData = async () => {
-//     const data = await createDataDB();
-//     return data;
-// };
+const createData = async (label, category, priority) => {
+    const data = await createDataDB(label, category, priority);
+    return data;
+};
 
-// const updateData = async () => {
-//     const data = await updateDataDB();
-//     return data;
-// };
+const updateData = async (label, category, priority, id) => {
+    const data = await updateDataDB(label, category, priority, id);
+    return data;
+};
 
+const deleteDataByID = async (id) => {
+    const data = await deleteDataByIDDB(id);
+    return data;
+}
 
 module.exports = {
-    getAllData, 
+    getAllData,
     getAllDataByID,
- 
+    createData,
+    updateData, 
+    deleteDataByID
 }
+
